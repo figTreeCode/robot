@@ -18,6 +18,6 @@ from django.conf.urls import include
 from django.conf.urls import url
 
 urlpatterns = [
-    url('blockselector/', include('grimapp.urls')),
+    url('api/', include('grimapp.urls')),
     url('admin/', admin.site.urls),
 ]

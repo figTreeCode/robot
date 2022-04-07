@@ -14,13 +14,11 @@ export class BlockSelectorService {
 
   } 
 
-  public serveURL: string = "http://127.0.0.1:8000";
-
   public getBlockSelected(color: string) {
-    const api = '/BlockSelector/getBlockSelected/';
+    const api = '/api/getBlockSelected/';
     const blockColor = color;
     const params = `color=${blockColor}`;
-    const lowercaseUrlApi = `${this.serveURL}${api}`.toLowerCase();
+    const lowercaseUrlApi = `${api}`.toLowerCase();
     //const fullApiUrl = `${lowercaseUrlApi}?${params}/`;
     const fullApiUrl = `${lowercaseUrlApi}`;
     return this.http.get<any>(`${fullApiUrl}`, {withCredentials:true}); 
