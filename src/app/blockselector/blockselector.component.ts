@@ -8,8 +8,8 @@ import { BlockSelectorService } from '../block-selector.service';
 })
 export class BlockselectorComponent implements OnInit {
 
-  constructor(private blockSelectorService: BlockSelectorService) { }
-
+constructor(private blockSelectorService: BlockSelectorService) { }
+  
   ngOnInit(): void {
   }
 
@@ -20,7 +20,4 @@ export class BlockselectorComponent implements OnInit {
       }));
 
   }
-
-
-
 }

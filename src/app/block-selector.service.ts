@@ -6,19 +6,23 @@ import { Observable, of } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+
 export class BlockSelectorService {
 
-  constructor(@Inject('BASE URL') private serveURL: string, private http: HttpClient) { 
+  constructor(private http: HttpClient) { 
 
-  }
+  } 
+
+  public serveURL: string = "http://127.0.0.1:8000";
 
   public getBlockSelected(color: string) {
-    const api = 'api/BlockSelector/getBlockSelected';
+    const api = '/BlockSelector/getBlockSelected/';
     const blockColor = color;
-    const params = `blockColor=${blockColor}`;
+    const params = `color=${blockColor}`;
     const lowercaseUrlApi = `${this.serveURL}${api}`.toLowerCase();
-    const fullApiUrl = `${lowercaseUrlApi}?${params}`;
-
-    return this.http.get<String>(`${fullApiUrl}`); 
+    //const fullApiUrl = `${lowercaseUrlApi}?${params}/`;
+    const fullApiUrl = `${lowercaseUrlApi}`;
+    return this.http.get<any>(`${fullApiUrl}`, {withCredentials:true}); 
   }
 }
